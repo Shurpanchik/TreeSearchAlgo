@@ -31,7 +31,7 @@ namespace TreeSearchAlgo
                     return current;
                 }
                 // добавляем в очередь все вершины, в которых не были
-                for (int i = 0; current.Childs != null && i < current.Childs.Count; i++)
+                for (int i = 0; i < current.Childs.Count; i++)
                 {
                     // если эта вершина еще не обрабатывалась, то добавляем ее в очередь
                     if (current.Childs[i].Used == false)
@@ -58,18 +58,21 @@ namespace TreeSearchAlgo
             {
                 return current;
             }
-            for (int i = 0; current.Childs != null && i < current.Childs.Count; i++)
+            else
             {
-                // если в этой вершине еще не были
-                if (current.Childs[i].Used == false)
+                for (int i = 0; i < current.Childs.Count; i++)
                 {
-                    // помечаем, что были в этой вершине
-                    current.Childs[i].Used = true;
-                    // запускаем поиск в глубину для данной вершины
-                    DFS(current.Childs[i], value);
+                    // если в этой вершине еще не были
+                    if (current.Childs[i].Used == false)
+                    {
+                        // помечаем, что были в этой вершине
+                        current.Childs[i].Used = true;
+                        // запускаем поиск в глубину для данной вершины
+                        DFS(current.Childs[i], value);
+                    }
                 }
+                return null;
             }
-            return null;
         }
     }
 }

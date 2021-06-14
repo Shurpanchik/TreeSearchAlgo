@@ -16,15 +16,17 @@ namespace TreeSearchAlgo
         public TreeNode<T> Top { get => top; set => top = value; }
 
         //метод добавления нового узла.
-        public void Add(TreeNode<T> node)
+        public void Add(TreeNode<T> parent, TreeNode<T> node)
         {
-            if (Top == null)
+            // если нет родителя, значит - это вершина дерева
+            if (parent == null)
             {
                 Top = node;
             }
             else
             {
-
+                // добавляем родителю ребенка
+                parent.Childs.Add(node);
             }
         }
     }

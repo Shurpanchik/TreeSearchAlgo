@@ -11,11 +11,15 @@ namespace TreeSearchAlgo
     public class TreeNode<T>
     {
         T value;
-        List<TreeNode<T>> childs;
+        List<TreeNode<T>> childs = new List<TreeNode<T>>();
         bool used = false;
 
         public T Value { get => value; set => this.value = value; }
         public List<TreeNode<T>> Childs { get => childs; set => childs = value; }
         public bool Used { get => used; set => used = value; }
+
+        public TreeNode(T v){
+            this.value = v;
+        }
     }
 }
