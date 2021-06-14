@@ -68,7 +68,11 @@ namespace TreeSearchAlgo
                         // помечаем, что были в этой вершине
                         current.Childs[i].Used = true;
                         // запускаем поиск в глубину для данной вершины
-                        DFS(current.Childs[i], value);
+                       TreeNode<T> answer = DFS(current.Childs[i], value);
+                      // если ответ найден, то больше не запускаем поиск
+                       if (answer != null) {
+                            return answer;
+                       }
                     }
                 }
                 return null;

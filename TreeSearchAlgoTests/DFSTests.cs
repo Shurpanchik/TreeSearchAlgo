@@ -41,7 +41,7 @@ namespace TreeSearchAlgoTests
             // найден элемент
             Assert.AreEqual(search.DFS(top, 1).Value, 1);
             // не найден элемент
-            Assert.AreEqual(search.DFS(top, 1).Value, null);
+            Assert.AreEqual(search.DFS(top, 23), null);
         }
 
         /// <summary>

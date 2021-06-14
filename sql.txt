@@ -1,0 +1,19 @@
+Решение 1 с использованием подзапроса.
+
+SELECT FIO, COUNT(*)
+FROM PEOPLE
+WHERE MARK = 2
+  AND FIO IN
+    (SELECT FIO
+     FROM PEOPLE
+     WHERE MARK = 5
+     GROUP BY FIO
+     HAVING COUNT (*)>=10)
+GROUP BY FIO
+
+Решение 2 без подзапроса.
+
+SELECT FIO,
+       SUM(CASE WHEN MARK=2 THEN 1 ELSE 0 END)
+GROUP BY FIO
+HAVING SUM(CASE WHEN MARK=5 THEN 1 ELSE 0 END) >= 10
